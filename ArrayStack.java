@@ -1,11 +1,10 @@
 public class ArrayStack<T> implements Stack<T> {
 
-    // private T[] arr;
+    private T[] arr;
     private int top;
 
     public ArrayStack() {
-        T[] arr = (T[]) new Object[10];
-        // arr = new T[10];
+        arr = (T[]) new Object[10];
         top = -1;
     }
 
@@ -18,8 +17,7 @@ public class ArrayStack<T> implements Stack<T> {
     }
 
     public T pop() {
-        T[] temp = (T[]) new Object[top];
-        // T[] temp = arr[top];
+        T temp = arr[top];
         top--;
         return temp;
     }
@@ -29,12 +27,11 @@ public class ArrayStack<T> implements Stack<T> {
     }
 
     public void expand() {
-        T[] temp = (T[]) new Object[arr.length * 2];
-        // T[] temp = new T[arr.length * 2];
+        T[] tempArr = (T[]) new Object[arr.length * 2];
         for (int i = 0; i < arr.length; i++) {
-            temp[i] = arr[i];
+            tempArr[i] = arr[i];
         }
-        arr = temp;
+        arr = tempArr;
     }
 
     public boolean empty() {
